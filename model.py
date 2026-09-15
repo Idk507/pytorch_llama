@@ -396,9 +396,9 @@ class EncoderBlock(nn.Module):
         super().__init__()
         self.attention = SelfAttention(args)
         self.feed_forward = FeedForward(args)
-        self.n_head = args.n_head
+        self.n_heads = args.n_heads
         self.dim = args.dim
-        self.head_dim = args.dim // args.n_head # Dimension of each attention head
+        self.head_dim = args.dim // args.n_heads # Dimension of each attention head
 
         # normalization layers for the attention and feed-forward sub-layers
         self.attention_norm = RMSNorm(args.dim, eps= args.norm_eps) # Root mean square normalization for the attention sub-layer
